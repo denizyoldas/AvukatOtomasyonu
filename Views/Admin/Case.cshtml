@@ -32,6 +32,7 @@
                                             <th>Ad</th>
                                             <th>Soyad</th>
                                             <th>Kategori</th>
+                                            <th>Konum</th>
                                             <th>İşlem</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,7 @@
                                                 <td>@item.Name</td>
                                                 <td>@item.Surname</td>
                                                 <td>@item.CategoryName</td>
+                                                <td>@item.ProvinceName/@item.DisctrictName</td>
                                                 <td>
                                                     <a href="@Url.Action("DeleteCase", "Admin", new { id = item.Id })"><i class="mdi mdi-delete text-danger"></i></a>
                                                 </td>

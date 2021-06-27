@@ -28,6 +28,7 @@ namespace AvukatOtomasyonu.Controllers
                              Name = c.UserName,
                              Surname = c.UserSurname,
                              CategoryName = cg.Name,
+                             Message = c.Message,
                              ProvinceName = p.Name,
                              DisctrictName = d.Name,
                          }).ToList();
@@ -296,8 +297,11 @@ namespace AvukatOtomasyonu.Controllers
             if (UserControl())
                 return RedirectToAction("Login");
             Appointment ap = db.Appointments.Where(a => a.Id == id).FirstOrDefault();
-            db.Appointments.Remove(ap);
-            db.SaveChanges();
+            if(ap != null)
+            {
+                db.Appointments.Remove(ap);
+                db.SaveChanges();
+            }
             return RedirectToAction("Appointment");
         }
 

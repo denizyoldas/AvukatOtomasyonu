@@ -14,6 +14,6 @@ namespace AvukatOtomasyonu.Models
         public string UserName { get; set; }
         public string UserSurname { get; set; }
         public string Email { get; set; }
-        public string message { get; set; }
+        public string Message { get; set; }
     }
 }
