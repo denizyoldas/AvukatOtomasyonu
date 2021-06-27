@@ -1,0 +1,110 @@
+﻿@model AvukatOtomasyonu.Models.UserViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Kategori Ekle</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Anasafya</a></li>
+                    <li class="active">Kategoriler</li>
+                    <li class="active">Yeni</li>
+                </ol>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                <div class="col-sm-6">
+                    <div class="white-box">
+                        <p class="text-muted m-b-30 font-13"> Kişisel Bilgiler </p>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-12">Ad</label>
+                                <div class="col-md-12">
+                                    @Html.TextBox("Name", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Soyad</label>
+                                <div class="col-md-12">
+                                    @Html.TextBox("Surname", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Email</label>
+                                <div class="col-md-12">
+                                    @Html.TextBox("Email", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Şifre</label>
+                                <div class="col-md-12">
+                                    @Html.TextBox("Password", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="white-box">
+                        <p class="text-muted m-b-30 font-13"> İletişim Bilgileri </p>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-12">Telefon</label>
+                                <div class="col-md-12">
+                                    @Html.TextBox("PhoneNumber", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">İl</label>
+                                <div class="col-md-12">
+                                    @*@Html.DropDownList("District", Model.districts)*@
+                                    <select class="form-control" name="Province">
+                                        @foreach (var item in Model.provinces)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">İlçe</label>
+                                <div class="col-md-12">
+                                    @*@Html.DropDownList("District", Model.districts)*@
+                                    <select class="form-control" name="District">
+                                        @foreach (var item in Model.districts)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Adres</label>
+                                <div class="col-md-12">
+                                    @Html.TextArea("Adress", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12" style="display: flex; justify-content: flex-end">
+                                    <button class="btn btn-success" type="submit">Kaydet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

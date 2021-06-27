@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Menu CSS -->
+    <link href="~/assets/css/sidebar-nav.min.css" rel="stylesheet" />
+    <!-- animation CSS -->
+    <link href="~/assets/css/animate.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <!-- color CSS -->
+    <link href="~/assets/css/blue-dark.css" rel="stylesheet" />
+    <!-- Material CDN -->
+    <link href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">                                                                                   
+                <!-- Search input and Toggle icon -->
+                <ul class="nav navbar-top-links navbar-left">
+                    <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li class="dropdown">
+                        <a href="@Url.Action("Logout", "Admin")" class="logout">
+                        <i class="mdi mdi-exit-to-app pr-2"></i>
+                            Çıkış Yap
+                        </a>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="mdi mdi-format-align-justify hidden-xs"></i><i class="ti-close visible-xs"></i></span> <span class="hide-menu">Saygı Yönetim</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="/Admin/Index" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Anasayfa</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("User", "Admin")" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw" data-icon="v"></i> <span class="hide-menu">Kullanıcı</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Case", "Admin")" class="waves-effect"><i class="mdi mdi-archive fa-fw" data-icon="v"></i> <span class="hide-menu">Dava</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Appointment", "Admin")" class="waves-effect"><i class="mdi mdi-window-open fa-fw" data-icon="v"></i> <span class="hide-menu">Randevu</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Category", "Admin")" class="waves-effect"><i class="mdi mdi-format-align-center fa-fw" data-icon="v"></i> <span class="hide-menu">Kategori</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        @RenderBody()
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="~/assets/js/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="~/assets/js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/assets/js/custom.min.js"></script>
+    <!--Style Switcher -->
+    <script src="~/assets/js/jQuery.style.switcher.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#province').change(function () {
+                var provinceId = parseInt($(this).val());
+                if (!isNaN(CountryId)) {
+                    var district = $('#disctirc');
+                    district.empty();
+                    district.append($("<option></option>").val('').html('Please wait ...'));
+
+                    $.ajax({
+                        url: 'http://localhost:44363/api/getDistricById',
+                        type: 'GET',
+                        dataType: 'json',
+                        data: { provinceId: provinceId },
+                        success: function (d) {
+
+                            district.empty();
+                            $.each(d, function (i, states) {
+                                district.append($("<option></option>").val(states.Id).html(states.Name));
+                            });
+                        },
+                        error: function () {
+                            alert('Error!');
+                        }
+                    });
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

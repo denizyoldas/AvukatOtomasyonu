@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AvukatOtomasyonu.Models.Category>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Kategori listesi</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Anasafya</a></li>
+                    <li class="active">Kategoriler</li>
+                </ol>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title" style="display: flex; justify-content: flex-end">
+                        <a class="btn btn-success" href="@Url.Action("AddCategory", "Admin")">Yeni</a>
+                    </h3>
+                    <div class="row card-body">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ad</th>
+                                            <th>Açıklama</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.Description</td>
+                                                <td>
+                                                    <a href="@Url.Action("EditCategory", "Admin", new { id = item.Id })"><i class="mdi mdi-pencil"></i></a>
+                                                    <a href="@Url.Action("DeleteCategory", "Admin", new { id = item.Id })"><i class="mdi mdi-delete text-danger"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

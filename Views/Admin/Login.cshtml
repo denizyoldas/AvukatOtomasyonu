@@ -1,0 +1,48 @@
+﻿@model AvukatOtomasyonu.Models.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Avukat Sistemi Girişi</title>
+
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="text-center">
+    @using (Html.BeginForm())
+    {
+        <div class="login-card row">
+            <div class="col-12">
+                <h1 class="h3 mb-3 font-weight-normal">Giriş Yap</h1>
+            </div>
+            <div class="col-12 text-left  pb-1">
+                Email
+            </div>
+            @Html.TextBoxFor(a => a.email, new { @class = "form-control mb-4" })
+            <div class="col-12 text-left  pb-1">
+                Şifre
+            </div>
+            @Html.TextBoxFor(a => a.password, new { @class = "form-control mb-4", @type = "password" })
+            <div class="col-6">
+                <a href="@Url.Action("Index","Home")" class="btn btn-lg btn-primary btn-block">Geri</a>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-lg btn-success btn-block" type="submit">Giriş</button>
+            </div>
+        </div>
+    }
+</body>
+

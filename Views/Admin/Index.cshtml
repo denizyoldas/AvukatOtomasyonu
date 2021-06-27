@@ -1,0 +1,116 @@
+﻿@model List<AvukatOtomasyonu.Models.CaseDTO>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Anasayfa</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Anasayfa</a></li>
+                </ol>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                        <div class="white-box">
+                            <div class="row row-in">
+                                <div class="col-lg-4 col-sm-6 row-in-br">
+                                    <ul class="col-in">
+                                        <li>
+                                            <span class="circle circle-md bg-danger"><i class="mdi mdi-account-multiple"></i></span>
+                                        </li>
+                                        <li class="col-last">
+                                            <h3 class="counter text-right m-t-15">@ViewBag.userCount</h3>
+                                        </li>
+                                        <li class="col-middle">
+                                            <h4>Kullanıcılar</h4>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="@ViewBag.userCount" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                    <span class="sr-only">@ViewBag.userCount% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 row-in-br  b-r-none">
+                                    <ul class="col-in">
+                                        <li>
+                                            <span class="circle circle-md bg-info"><i class="mdi mdi-format-align-center"></i></span>
+                                        </li>
+                                        <li class="col-last">
+                                            <h3 class="counter text-right m-t-15">@ViewBag.categoryCount</h3>
+                                        </li>
+                                        <li class="col-middle">
+                                            <h4>Kategoriler</h4>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@ViewBag.categoryCount" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                    <span class="sr-only">@ViewBag.categoryCount% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 row-in-br">
+                                    <ul class="col-in">
+                                        <li>
+                                            <span class="circle circle-md bg-success"><i class=" ti-shopping-cart"></i></span>
+                                        </li>
+                                        <li class="col-last">
+                                            <h3 class="counter text-right m-t-15">@ViewBag.caseCount</h3>
+                                        </li>
+                                        <li class="col-middle">
+                                            <h4>Davalar</h4>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@ViewBag.caseCount" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                    <span class="sr-only">@ViewBag.caseCount% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title">Açıkta Bulunan Davalar</h3>
+                    <div class="row card-body">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ad</th>
+                                            <th>Soyad</th>
+                                            <th>Kategori</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Surname</td>
+                                            <td>@item.CategoryName</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+    </div>
+</div>
+

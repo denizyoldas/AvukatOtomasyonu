@@ -1,0 +1,235 @@
+﻿@model AvukatOtomasyonu.Models.HomeViewModel
+
+<!-- ======= Header ======= -->
+<header id="header" class="header-tops">
+    <div class="container">
+
+        <h1><a href="index.html">Saygı Avukatlık bürosu</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+        <h2>Aradığınız <span>Avukatı</span> bulun.</h2>
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="#header">Anasayfa</a></li>
+                <li><a href="#about">Hakkımızda</a></li>
+                <li><a href="#services">Hizmetlerimiz</a></li>
+                <li><a href="#contact">İletişim</a></li>
+                <li>@Html.ActionLink("Giriş", "Login", "Admin")</li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+        <div class="social-links">
+            <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+            <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+            <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="icofont-skype"></i></a>
+            <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+        </div>
+
+    </div>
+</header><!-- End Header -->
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
+    <div class="about-me container">
+
+        <div class="section-title">
+            <h2>Hakkında</h2>
+            <p>Bizim hakkımızda daha çok şey öğrenin</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+                <img src="assets/img/me.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                <h3>Saygı Hukuk</h3>
+                <p class="font-italic">
+                    Saygı Hukuk bürosu 1994 yılından buyana sizlere hizmetlerini sunmaktadır. Sizler için 7/24 hizmet vermekte ve her an yanınızda olmaktadır.
+                </p>
+                <p>
+                    Online randevu sistemimizle sizlere heryerden ulaşabiliyoruz.
+                </p>
+            </div>
+        </div>
+
+    </div><!-- End About Me -->
+    <!-- ======= Counts ======= -->
+    <div class="counts container">
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="count-box">
+                    <i class="icofont-simple-smile"></i>
+                    <span data-toggle="counter-up">232</span>
+                    <p>Şirket</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                <div class="count-box">
+                    <i class="icofont-document-folder"></i>
+                    <span data-toggle="counter-up">521</span>
+                    <p>Kayıtlı Müşteri</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                <div class="count-box">
+                    <i class="icofont-live-support"></i>
+                    <span data-toggle="counter-up">1,463</span>
+                    <p>Dava</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                <div class="count-box">
+                    <i class="icofont-users-alt-5"></i>
+                    <span data-toggle="counter-up">15</span>
+                    <p>Avukat</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- End Counts -->
+
+</section>
+<!-- End About Section -->
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Hizmetlerimiz</h2>
+            <p>Hangi Davalara Bakıyoruz</p>
+        </div>
+
+        <div class="row">
+
+            @foreach (var category in Model.Categories)
+            {
+                <div class="col-4 pb-3 d-flex align-items-stretch">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <h4><a href="">@category.Name</a></h4>
+                        <p>@category.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+<!-- End Services Section -->
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>İletişim</h2>
+            <p>Bizlere direk talep oluşturabilirsiniz</p>
+        </div>
+
+        <div class="row mt-2">
+
+            <div class="col-md-6 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-map"></i>
+                    <h3>Adres</h3>
+                    <p>Beyler beyi istanbul</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-share-alt"></i>
+                    <h3>Social Profiles</h3>
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="icofont-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@saygi.com</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-phone-call"></i>
+                    <h3>Telefon</h3>
+                    <p>+90 544 423 46 48</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="php-email-form mt-4">
+            @using (Html.BeginForm())
+            {
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="UserName" class="form-control" id="name" placeholder="Ad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="UserSurname" class="form-control" id="Surname" placeholder="Ad" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input type="email" class="form-control" name="Email" id="email" placeholder="email" data-rule="email" data-msg="Please enter a valid email" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <select class="form-control" name="ProvinceId" id="province2" placeholder="Kategori">
+                            <option value="0">Şehir seçiniz</option>
+                            @foreach (var item in Model.Provinces)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <select class="form-control" name="DistrictId" id="disct" placeholder="Kategori">
+                            <option value="0">İlçe seçiniz</option>
+                            @foreach (var item in Model.Districts)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="CategoryId" placeholder="Kategori">
+                        @foreach (var item in Model.Categories)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="Message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mesaj"></textarea>
+                    <div class="validate"></div>
+                </div>
+                <div class="text-center"><button type="submit">Gönder</button></div>
+            }
+        </div>
+
+    </div>
+</section>
+<!-- End Contact Section -->
+
+<div class="credits">
+    Designed by <a href="https://bootstrapmade.com/">DYA Digital</a>
+</div>
